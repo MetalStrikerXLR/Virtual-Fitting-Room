@@ -1,15 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="99e7157c-65dc-41ef-a4b4-f81d8430605e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/MetalStriker.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI.ui" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUIsource.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/KinectGUI.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MainCode.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/killua.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/multithread_test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pyuic5 convertor.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pyuic5.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ImageProcessing.py" beforeDir="false" afterPath="$PROJECT_DIR$/ImageProcessing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Code.py" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="E:\Projects\Python\fyp-virtual-dressing-room\.idea" />
+      </set>
+    </option>
+  </component>
   <component name="ProjectId" id="1W1TBLozkIioBvlVwNpUlvFU0dr" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager">
-    <configuration name="Main_Code" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.KinectGUI">
+    <configuration name="KinectGUI" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="fyp-virtual-dressing-room" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -21,7 +65,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Main_Code.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/KinectGUI.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -30,10 +74,178 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="MainCode" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="fyp-virtual-dressing-room" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/MainCode.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="basic_2D" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="fyp-virtual-dressing-room" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/basic_2D.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="multithread_test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="fyp-virtual-dressing-room" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/multithread_test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.KinectGUI" />
+      <item itemvalue="Python.MainCode" />
+      <item itemvalue="Python.multithread_test" />
+      <item itemvalue="Python.basic_2D" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Main_Code" />
+        <item itemvalue="Python.KinectGUI" />
+        <item itemvalue="Python.MainCode" />
+        <item itemvalue="Python.basic_2D" />
+        <item itemvalue="Python.multithread_test" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="99e7157c-65dc-41ef-a4b4-f81d8430605e" name="Default Changelist" comment="" />
+      <created>1578315964969</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1578315964969</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Re-organised Code for better readability">
+      <created>1578316031266</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1578316031266</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Re-organised Code for better readability" />
+    <option name="LAST_COMMIT_MESSAGE" value="Re-organised Code for better readability" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586869925687">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586869925687" />
+    <state x="614" y="114" key="CommitChangelistDialog2" timestamp="1578316029422">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="614" y="114" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1578316029422" />
+    <state x="740" y="261" key="FileChooserDialogImpl" timestamp="1585323409380">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="261" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1585323409380" />
+    <state width="1899" height="261" key="GridCell.Tab.0.bottom" timestamp="1586879307389">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="261" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1586879307389" />
+    <state width="1899" height="261" key="GridCell.Tab.0.center" timestamp="1586879307389">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="261" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1586879307389" />
+    <state width="1899" height="261" key="GridCell.Tab.0.left" timestamp="1586879307389">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="261" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1586879307389" />
+    <state width="1899" height="261" key="GridCell.Tab.0.right" timestamp="1586879307389">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="261" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1586879307389" />
+    <state width="1899" height="129" key="GridCell.Tab.1.bottom" timestamp="1586877025777">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="129" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1586877025777" />
+    <state width="1899" height="129" key="GridCell.Tab.1.center" timestamp="1586877025777">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="129" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1586877025777" />
+    <state width="1899" height="129" key="GridCell.Tab.1.left" timestamp="1586877025777">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="129" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1586877025777" />
+    <state width="1899" height="129" key="GridCell.Tab.1.right" timestamp="1586877025777">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="129" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1586877025777" />
+    <state x="461" y="162" key="SettingsEditor" timestamp="1585384871994">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1585384871994" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1578316033625">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1578316033625" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1579957694081">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1579957694081" />
   </component>
 </project>
