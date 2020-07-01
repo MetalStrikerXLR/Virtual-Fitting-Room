@@ -3,16 +3,24 @@ from PyQt5.QtCore import *
 import MainCode as MC
 
 
-class Worker(QRunnable):
+class KinectCAM(QRunnable):
 
     @pyqtSlot()
     def run(self):
-        print("Thread start")
-
-        MC.StartKinect()
+        print("Thread 1 start")
+        MC.initKinect()
         MC.disconnectStatus = 0
+        MC.initialization = 0
+        print("Thread 1 complete")
 
-        print("Thread complete")
+
+class ProcessKinect(QRunnable):
+
+    @pyqtSlot()
+    def run(self):
+        print("Thread 2 start")
+        # MC.processKinect()
+        print("Thread 2 complete")
 
 
 class Ui_MainWindow(object):
@@ -33,7 +41,6 @@ class Ui_MainWindow(object):
         self.verticalLayout.setObjectName("verticalLayout")
         self.imageDisplay = QtWidgets.QLabel(self.centralwidget)
         self.imageDisplay.setText("")
-        self.imageDisplay.setPixmap(QtGui.QPixmap("killua.jpg"))
         self.imageDisplay.setScaledContents(True)
         self.imageDisplay.setObjectName("imageDisplay")
         self.verticalLayout.addWidget(self.imageDisplay)
@@ -52,6 +59,10 @@ class Ui_MainWindow(object):
         # Self Design Editions
         self.conButton.setEnabled(True)
         self.disButton.setEnabled(False)
+
+        self.timer = QtCore.QTimer()
+        self.timer.timeout.connect(self.updateGUI)
+        self.timer.start(250)
 
         #### Signal Connection ####
         self.conButton.pressed.connect(self.connectKinect)
@@ -72,8 +83,10 @@ class Ui_MainWindow(object):
 
     def connectKinect(self):
         # Worker thread handles Kinect Code
-        worker = Worker()
-        self.threadpool.start(worker)
+        thread1 = KinectCAM()
+        thread2 = ProcessKinect()
+        self.threadpool.start(thread1)
+        self.threadpool.start(thread2)
         self.conButton.setEnabled(False)
         self.disButton.setEnabled(True)
 
@@ -82,6 +95,14 @@ class Ui_MainWindow(object):
         self.conButton.setEnabled(True)
         self.disButton.setEnabled(False)
         MC.disconnectStatus = 1
+
+    def updateGUI(self):
+
+        # Add repeating GUI code here
+        if MC.initialization == 1:
+            self.imageDisplay.setPixmap(QtGui.QPixmap("Kinect_Image.jpg"))
+        else:
+            self.imageDisplay.setPixmap(QtGui.QPixmap("logo.png"))
 
 
 # GUI Execution:

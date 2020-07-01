@@ -108,9 +108,19 @@ colors_order = [(0,0,255),   # Red
                 (0,255,255), # Yellow
                 (255,0,255), # Magenta
                 (255,255,0)] # Cyan
-def draw_joint2D(img, j2D, color=(0,0,255)): # Default red circles
-    for i in range(j2D.shape[0]): # Should loop 25 times
-        cv2.circle(img, (j2D[i,0],j2D[i,1]), 5, color, -1)
+
+
+def draw_joint2D(img, j2D, color=(0, 0, 255)):  # Default red circles
+    for i in range(j2D.shape[0]):               # Should loop 25 times
+        cv2.circle(img, (j2D[i, 0], j2D[i, 1]), 5, color, -1)
+
+    return img
+
+
+def draw_joint2DFull(img, j2D, color=(0, 0, 255)):  # Default red circles
+    for i in range(j2D.shape[0]):                   # Should loop 25 times
+        if i == 0 or i == 4 or i == 8 or i ==12 or i == 16 or i == 2:
+            cv2.circle(img, (int(j2D[i, 0] * 3.75) + 30, int(j2D[i, 1] * 2.547) - 50), 5, color, -1)
 
     return img
 

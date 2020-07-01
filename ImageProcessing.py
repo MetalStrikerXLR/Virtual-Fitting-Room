@@ -11,22 +11,28 @@ def removeBackground(image, mask):
     return Out_image
 
 
-def removeClothBK(grayscale_img, orig_img):
-    _, cloth_mask = cv2.threshold(grayscale_img, 127, 255, 0)
-    _, alpha = cv2.threshold(grayscale_img, 0, 255, cv2.THRESH_BINARY)
-    #contours, _ = cv2.findContours(cloth_mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
-    #cv2.drawContours(orig_img, contours, -1, (1, 255, 0), 2)
+def removeClothBG(img):
+    img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    _, cloth_mask = cv2.threshold(img_gray, 5, 255, cv2.THRESH_BINARY)
+    _, alpha = cv2.threshold(img_gray, 0, 1, cv2.THRESH_BINARY)
 
-    overlay = np.zeros_like(orig_img)  # Extract out the object and place into output image
-    overlay[cloth_mask == 255] = orig_img[cloth_mask == 255]
-    b, g, r, a = cv2.split(overlay)
-    rgba = [b, g, r, alpha]
-    Bkremoved = cv2.merge(rgba, 4)
+    # Extract out the image based on mask
+    overlay = np.zeros_like(img)
+    overlay[cloth_mask == 255] = img[cloth_mask == 255]
+
+    # Add alpha channel for transparency
+    if len(cv2.split(overlay)) == 4:
+        b, g, r, a = cv2.split(overlay)
+    else:
+        b, g, r = cv2.split(overlay)
+
+    RGBA_img = [b, g, r, alpha]
+    BG_removed = cv2.merge(RGBA_img, 4)
 
     (y, x) = np.where(cloth_mask == 255)
     (top_y, top_x) = (np.min(y), np.min(x))
     (bottom_y, bottom_x) = (np.max(y), np.max(x))
-    cropped_img = Bkremoved[top_y:bottom_y + 1, top_x:bottom_x + 1]
+    cropped_img = BG_removed[top_y:bottom_y + 1, top_x:bottom_x + 1]
 
     return cropped_img
 
@@ -61,3 +67,12 @@ def image_resize(image, width=None, height=None, inter=cv2.INTER_AREA):
 
     # return the resized image
     return resized
+
+
+def mergeImages(cloth_overlay, user_overlay):
+
+    _, cloth_overlay_mask = cv2.threshold(cv2.cvtColor(cloth_overlay, cv2.COLOR_BGR2GRAY), 5, 255, cv2.THRESH_BINARY)
+    user_overlay[cloth_overlay_mask == 255] = 0
+    cv2.addWeighted(cloth_overlay, 1, user_overlay, 1, 0, user_overlay)
+
+    return user_overlay

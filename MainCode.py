@@ -3,16 +3,62 @@ import math as mt
 import Kinect as Kv2
 import ImageProcessing as IP
 import numpy as np
+import glob
 
 disconnectStatus = 0
+kinect = 0
+initialization = 0
+color_img = 0
+joint = 0
+jointPoints = 0
 
 
-def StartKinect():
+def initKinect():
     #############################
     ### Kinect runtime object ###
     #############################
-    shoulder_distance = 100
-    overlay = 0
+    global disconnectStatus
+    global kinect
+    global initialization
+    global color_img
+    global joint
+    global jointPoints
+
+    kinect = Kv2.initializeKinect()
+    color_width, color_height = Kv2.getColorDimension(kinect)
+
+    ########################
+    ### Main Kinect Loop ###
+    ########################
+
+    while True:
+        if kinect.has_new_body_frame() and kinect.has_new_color_frame():
+
+            ##############################
+            ### Get images from camera ###
+            ##############################
+            color_img, joint, jointPoints = Kv2.getKinectFrames(kinect, color_height, color_width)
+
+            cv2.imwrite("Kinect_Image.jpg", color_img)
+            initialization = 1
+
+        if disconnectStatus == 1:
+            break
+
+    kinect.close()
+    print("Kinect Shutdown!")
+
+
+def processKinect():
+    global disconnectStatus
+    global kinect
+    global initialization
+    global color_img
+    global joint
+    global jointPoints
+
+    shoulder_distance = 300
+    waist_distance = 300
 
     SJR_x = 0
     SJR_y = 0
@@ -20,41 +66,31 @@ def StartKinect():
     SJL_y = 0
     Nk_x = 0
     Nk_y = 0
+    HPL_x = 0
+    HPL_y = 0
+    HPR_x = 0
+    HPR_y = 0
+    SPB_x = 0
+    SPB_y = 0
 
-    kinect = Kv2.initializeKinect()
+    # load cloth images
+    shirts = [cv2.imread(file) for file in glob.glob('Datasets/Shirts/*.png')]
+    pants = [cv2.imread(file) for file in glob.glob('Datasets/Pants/*.png')]
+    cropped_shirts = []
+    cropped_pants = []
 
-    depth_width, depth_height = Kv2.getDepthDimension(kinect)
-    color_width, color_height = Kv2.getColorDimension(kinect)
+    # process and store cloth images
+    for items in shirts:
+        shirt_processed = IP.removeClothBG(items)
+        cropped_shirts.append(shirt_processed)
 
-    shirt_img = cv2.imread("Datasets/2D Cloths self made/shirt3.png", -1)
-    shirt_img_gray = cv2.cvtColor(shirt_img, cv2.COLOR_BGR2GRAY)
-
-    ########################
-    ### Main Kinect Loop ###
-    ########################
+    for items in pants:
+        pant_processed = IP.removeClothBG(items)
+        cropped_pants.append(pant_processed)
 
     while True:
 
-        if kinect.has_new_body_frame() \
-                and kinect.has_new_body_index_frame() \
-                and kinect.has_new_color_frame() \
-                and kinect.has_new_depth_frame() \
-                and kinect.has_new_infrared_frame():
-
-            ##############################
-            ### Get images from camera ###
-            ##############################
-            print("running")
-            body_index_img, color_img, depth_img, infrared_img, joint, jointpoints = Kv2.getKinectFrames(kinect,
-                                                                                                         depth_height,
-                                                                                                         depth_width,
-                                                                                                         color_height,
-                                                                                                         color_width)
-
-            align_color_img = Kv2.alignDepthColor(kinect, color_img)
-            Bk_removed = IP.removeBackground(align_color_img, body_index_img)
-
-            cropped_cloth = IP.removeClothBK(shirt_img_gray, shirt_img)
+        if initialization == 1:
 
             #################################################
             ### Extract and Draw 2D joints on single body ###
@@ -62,59 +98,88 @@ def StartKinect():
 
             if joint != 0:
 
-                joint2D, joint3D = Kv2.getBodyJoints(joint, jointpoints, depth_img, depth_width, depth_height)
-                SJR_x, SJR_y, SJL_x, SJL_y, Nk_x, Nk_y = joint2D[8, 0], joint2D[8, 1], joint2D[4, 0], joint2D[4, 1], joint2D[2, 0], joint2D[2, 1]
+                joint2D = Kv2.getBodyJoints(joint, jointPoints)
+                SJR_x = int(joint2D[8, 0] * 3.75) + 30
+                SJR_y = int(joint2D[8, 1] * 2.547) - 50
+                SJL_x = int(joint2D[4, 0] * 3.75) + 30
+                SJL_y = int(joint2D[4, 1] * 2.547) - 50
+                Nk_x = int(joint2D[2, 0] * 3.75) + 30
+                Nk_y = int(joint2D[2, 1] * 2.547) - 50
+                HPL_x = int(joint2D[12, 0] * 3.75)
+                HPL_y = int(joint2D[12, 1] * 2.547) - 50
+                HPR_x = int(joint2D[16, 0] * 3.75) + 60
+                HPR_y = int(joint2D[16, 1] * 2.547) - 50
+                SPB_x = int(joint2D[0, 0] * 3.75) + 30
+                SPB_y = int(joint2D[0, 1] * 2.547) - 50
 
-                # print("Shoulder Right coordinates: " + str(joint2D[8]))
-                # print("Shoulder Left coordinates: " + str(joint2D[4]))
+                print(SPB_x)
 
-                Bk_removed = Kv2.drawJoints(Bk_removed, joint2D)
-                distance = mt.sqrt(mt.pow(SJL_x - SJR_x, 2))
+                color_img = Kv2.drawJointsFull(color_img, joint2D)
+
+                distance1 = mt.sqrt(mt.pow(SJL_x - SJR_x, 2))
+                distance2 = mt.sqrt(mt.pow(HPL_x - HPR_x, 2))
 
             else:
-                distance = 100
+                distance1 = 300
+                distance2 = 300
 
-            if distance <= 0:
+            if distance1 <= 0:
                 shoulder_distance = shoulder_distance
             else:
-                shoulder_distance = distance
+                shoulder_distance = distance1
 
-            # print("Shoulder Distance: " + str(shoulder_distance))
+            if distance2 <= 0:
+                waist_distance = waist_distance
+            else:
+                waist_distance = distance2
 
             ##############################################
             ### Resizing Cloth image according to user ###
             ##############################################
 
-            resized_cloth = IP.image_resize(cropped_cloth, width=int(shoulder_distance + 60))
-            cloth_row = np.shape(resized_cloth)[0]
-            cloth_col = np.shape(resized_cloth)[1]
+            resized_shirt = IP.image_resize(cropped_shirts[1], width=int(shoulder_distance + 60))
+            resized_pant = IP.image_resize(cropped_pants[3], width=int(waist_distance))
+
+            shirt_y = np.shape(resized_shirt)[0]
+            shirt_x = np.shape(resized_shirt)[1]
+            pant_y = np.shape(resized_pant)[0]
+            pant_x = np.shape(resized_pant)[1]
 
             #####################################################
             ### Add resized image to Background removed Image ###
             #####################################################
 
             # Offsets:
-            SJL_y = int(SJL_y - 20)
-            SJL_x = int(SJL_x - 20)
-            Nk_x = int(Nk_x - (shoulder_distance / 2) - 30)
+            overlay = np.zeros_like(color_img)
+            overlay_y = np.shape(overlay)[0]
+            overlay_x = np.shape(overlay)[1]
 
-            if SJL_y >= 0 and SJL_x >= 0:
-                overlay = np.zeros_like(Bk_removed)
-                overlay[Nk_y:Nk_y + cloth_row, Nk_x:Nk_x + cloth_col] = resized_cloth[0:cloth_row, 0:cloth_col]
-                cv2.addWeighted(overlay, 1, Bk_removed, 1, 0, Bk_removed)
+            # Pant addition
+            cutoff_pants = (SPB_y + pant_y) - overlay_y
+            if cutoff_pants <= 0:
+                cutoff_pants = 0
+            else:
+                cutoff_pants = cutoff_pants
+
+            if (HPL_x - 20) > 0 and SPB_y > 0 and (HPR_x + 70) < overlay_x:
+                overlay[SPB_y:SPB_y + pant_y - cutoff_pants,
+                int(SPB_x - (waist_distance / 2)):int(SPB_x - (waist_distance / 2)) + pant_x] = resized_pant[
+                                                                                                0:pant_y - cutoff_pants,
+                                                                                                0:pant_x]
+
+            # Shirt addition
+            if (SJL_x - 20) > 0 and Nk_y > 0 and (SJR_x + 70) < overlay_x:
+                overlay[Nk_y:Nk_y + shirt_y, int(Nk_x - (shoulder_distance / 2) - 30):int(
+                    Nk_x - (shoulder_distance / 2) - 30) + shirt_x] = resized_shirt[0:shirt_y, 0:shirt_x]
+
+            Output = IP.mergeImages(overlay, color_img)
 
             #####################################
             ## Display 2D images using OpenCV ###
             #####################################
 
-            cv2.imshow('Color + Depth Image', align_color_img)  # (512, 424, 4)
-            cv2.imshow('Removed Background', Bk_removed)
-            cv2.imshow('overlay', overlay)
+            # cv2.imshow('Color + Depth Image', color_img)
+            cv2.imwrite("Kinect_Image.jpg", Output)
 
-        key = cv2.waitKey(30)
         if disconnectStatus == 1:
             break
-
-    kinect.close()
-    cv2.destroyAllWindows()
-    print("Kinect Shutdown!")

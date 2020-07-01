@@ -2,18 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="99e7157c-65dc-41ef-a4b4-f81d8430605e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/MetalStriker.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI.ui" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUIsource.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/KinectGUI.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MainCode.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/killua.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/multithread_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pyuic5 convertor.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pyuic5.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Datasets/Pants/pant1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Datasets/Pants/pant2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Datasets/Pants/pant3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Datasets/Pants/pant4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Datasets/Pants/pant5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Datasets/Shirts/shirt1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Datasets/Shirts/shirt2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Datasets/Shirts/shirt3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Datasets/Shirts/shirt4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Datasets/Shirts/shirt5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Kinect_Image.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MainCode_Solo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/My.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/MetalStriker.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/MetalStriker.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Datasets/2D Cloths self made/pant1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Datasets/2D Cloths self made/pant2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Datasets/2D Cloths self made/pant3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Datasets/2D Cloths self made/shirt1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Datasets/2D Cloths self made/shirt2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Datasets/2D Cloths self made/shirt3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Datasets/2D Cloths self made/shirt4.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ImageProcessing.py" beforeDir="false" afterPath="$PROJECT_DIR$/ImageProcessing.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Code.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kinect.py" beforeDir="false" afterPath="$PROJECT_DIR$/Kinect.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KinectGUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/KinectGUI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainCode.py" beforeDir="false" afterPath="$PROJECT_DIR$/MainCode.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/killua.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils_PyKinectV2.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils_PyKinectV2.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +69,28 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.KinectGUI">
+  <component name="RunManager" selected="Python.MainCode_Solo">
+    <configuration name="ContourTest" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="fyp-virtual-dressing-room" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ContourTest.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="KinectGUI" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="fyp-virtual-dressing-room" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -95,6 +133,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="MainCode_Solo" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="fyp-virtual-dressing-room" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/MainCode_Solo.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="basic_2D" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="fyp-virtual-dressing-room" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -116,39 +175,20 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="multithread_test" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="fyp-virtual-dressing-room" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/multithread_test.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <list>
       <item itemvalue="Python.KinectGUI" />
       <item itemvalue="Python.MainCode" />
-      <item itemvalue="Python.multithread_test" />
       <item itemvalue="Python.basic_2D" />
+      <item itemvalue="Python.ContourTest" />
+      <item itemvalue="Python.MainCode_Solo" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.MainCode_Solo" />
+        <item itemvalue="Python.ContourTest" />
         <item itemvalue="Python.KinectGUI" />
-        <item itemvalue="Python.MainCode" />
         <item itemvalue="Python.basic_2D" />
-        <item itemvalue="Python.multithread_test" />
+        <item itemvalue="Python.MainCode" />
       </list>
     </recent_temporary>
   </component>
@@ -182,70 +222,78 @@
       <option name="project" value="LOCAL" />
       <updated>1578316031266</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added a basic GUI to control Kinect code. Will use this later to display kinect output.&#10;&#10;Also Implemented basic shirt tracking and resizing.">
+      <created>1586879476459</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1586879476459</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Re-organised Code for better readability" />
-    <option name="LAST_COMMIT_MESSAGE" value="Re-organised Code for better readability" />
+    <MESSAGE value="Added a basic GUI to control Kinect code. Will use this later to display kinect output.&#10;&#10;Also Implemented basic shirt tracking and resizing." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a basic GUI to control Kinect code. Will use this later to display kinect output.&#10;&#10;Also Implemented basic shirt tracking and resizing." />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586869925687">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586869925687" />
-    <state x="614" y="114" key="CommitChangelistDialog2" timestamp="1578316029422">
+    <state x="614" y="114" key="CommitChangelistDialog2" timestamp="1586879474287">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="614" y="114" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1578316029422" />
-    <state x="740" y="261" key="FileChooserDialogImpl" timestamp="1585323409380">
+    <state x="614" y="114" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1586879474287" />
+    <state x="740" y="261" key="FileChooserDialogImpl" timestamp="1593439652043">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="261" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1585323409380" />
-    <state width="1899" height="261" key="GridCell.Tab.0.bottom" timestamp="1586879307389">
+    <state x="740" y="261" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1593439652043" />
+    <state width="1899" height="159" key="GridCell.Tab.0.bottom" timestamp="1593611317632">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="261" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1586879307389" />
-    <state width="1899" height="261" key="GridCell.Tab.0.center" timestamp="1586879307389">
+    <state width="1899" height="169" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587457854187" />
+    <state width="1899" height="159" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1593611317632" />
+    <state width="1899" height="159" key="GridCell.Tab.0.center" timestamp="1593611317632">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="261" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1586879307389" />
-    <state width="1899" height="261" key="GridCell.Tab.0.left" timestamp="1586879307389">
+    <state width="1899" height="169" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587457854187" />
+    <state width="1899" height="159" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1593611317632" />
+    <state width="1899" height="159" key="GridCell.Tab.0.left" timestamp="1593611317632">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="261" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1586879307389" />
-    <state width="1899" height="261" key="GridCell.Tab.0.right" timestamp="1586879307389">
+    <state width="1899" height="169" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587457854186" />
+    <state width="1899" height="159" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1593611317632" />
+    <state width="1899" height="159" key="GridCell.Tab.0.right" timestamp="1593611317632">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="261" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1586879307389" />
-    <state width="1899" height="129" key="GridCell.Tab.1.bottom" timestamp="1586877025777">
+    <state width="1899" height="169" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587457854187" />
+    <state width="1899" height="159" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1593611317632" />
+    <state width="1899" height="129" key="GridCell.Tab.1.bottom" timestamp="1587282509097">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="129" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1586877025777" />
-    <state width="1899" height="129" key="GridCell.Tab.1.center" timestamp="1586877025777">
+    <state width="1899" height="129" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1587282509097" />
+    <state width="1899" height="129" key="GridCell.Tab.1.center" timestamp="1587282509097">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="129" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1586877025777" />
-    <state width="1899" height="129" key="GridCell.Tab.1.left" timestamp="1586877025777">
+    <state width="1899" height="129" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1587282509097" />
+    <state width="1899" height="129" key="GridCell.Tab.1.left" timestamp="1587282509097">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="129" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1586877025777" />
-    <state width="1899" height="129" key="GridCell.Tab.1.right" timestamp="1586877025777">
+    <state width="1899" height="129" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1587282509097" />
+    <state width="1899" height="129" key="GridCell.Tab.1.right" timestamp="1587282509097">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="129" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1586877025777" />
+    <state width="1899" height="129" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1587282509097" />
     <state x="461" y="162" key="SettingsEditor" timestamp="1585384871994">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1585384871994" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1578316033625">
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1586879482111">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1578316033625" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1579957694081">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1579957694081" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1586879482111" />
   </component>
 </project>
