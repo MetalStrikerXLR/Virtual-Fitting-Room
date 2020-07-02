@@ -62,7 +62,7 @@ class Ui_MainWindow(object):
 
         self.timer = QtCore.QTimer()
         self.timer.timeout.connect(self.updateGUI)
-        self.timer.start(10)
+        self.timer.start(200)
 
         #### Signal Connection ####
         self.conButton.pressed.connect(self.connectKinect)
@@ -100,7 +100,7 @@ class Ui_MainWindow(object):
 
         # Add repeating GUI code here
         if MC.initialization == 1:
-            self.imageDisplay.setPixmap(QtGui.QPixmap(MC.qImg))
+            self.imageDisplay.setPixmap(QtGui.QPixmap("Kinect_Image.jpg"))
         else:
             self.imageDisplay.setPixmap(QtGui.QPixmap("logo.png"))
 

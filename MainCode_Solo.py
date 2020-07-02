@@ -1,12 +1,11 @@
 import cv2
 import math as mt
-
-from PyQt5.QtGui import QImage
-
+from threading import Timer
 import Kinect as Kv2
 import ImageProcessing as IP
 import numpy as np
 import glob
+
 
 shoulder_distance = 300
 waist_distance = 300
@@ -23,6 +22,24 @@ HPR_x = 0
 HPR_y = 0
 SPB_x = 0
 SPB_y = 0
+HTL_x = 0
+HTL_y = 0
+HTR_x = 0
+HTR_y = 0
+
+icon1_state = 0
+icon2_state = 0
+icon3_state = 0
+icon4_state = 0
+
+# load icons
+icons = [cv2.imread(file, cv2.IMREAD_UNCHANGED) for file in glob.glob('icons/*.png')]
+cropped_icons = []
+
+# process and store icon images
+for items in icons:
+    icon_processed = IP.processIcons(items, 30)
+    cropped_icons.append(icon_processed)
 
 # load cloth images
 shirts = [cv2.imread(file, cv2.IMREAD_UNCHANGED) for file in glob.glob('Datasets/Shirts/*.png')]
@@ -35,9 +52,21 @@ for items in shirts:
     shirt_processed = IP.removeClothBG(items)
     cropped_shirts.append(shirt_processed)
 
+current_shirt = cropped_shirts[0]
+si = 0
+
 for items in pants:
     pant_processed = IP.removeClothBG(items)
     cropped_pants.append(pant_processed)
+
+current_pant = cropped_pants[0]
+pi = 0
+
+#############################
+### State reset timer ###
+#############################
+
+
 
 #############################
 ### Kinect runtime object ###
@@ -79,8 +108,14 @@ while True:
             HPR_y = int(joint2D[16, 1] * 2.547) - 50
             SPB_x = int(joint2D[0, 0] * 3.75) + 30
             SPB_y = int(joint2D[0, 1] * 2.547) - 50
+            HTL_x = int(joint2D[21, 0] * 4) + 30
+            HTL_y = int(joint2D[21, 1] * 3) - 50
+            HTR_x = int(joint2D[23, 0] * 3.5) + 30
+            HTR_y = int(joint2D[23, 1] * 3) - 50
 
-            color_img = Kv2.drawJointsFull(color_img, joint2D)
+            # color_img = Kv2.drawJointsFull(color_img, joint2D)
+            cv2.circle(color_img, (HTL_x, HTL_y), 20, (66, 212, 245), -1)
+            cv2.circle(color_img, (HTR_x, HTR_y), 20, (66, 212, 245), -1)
 
             distance1 = mt.sqrt(mt.pow(SJL_x - SJR_x, 2))
             distance2 = mt.sqrt(mt.pow(HPL_x - HPR_x, 2))
@@ -103,8 +138,28 @@ while True:
         ### Resizing Cloth image according to user ###
         ##############################################
 
-        resized_shirt = IP.image_resize(cropped_shirts[1], width=int(shoulder_distance + 60))
-        resized_pant = IP.image_resize(cropped_pants[3], width=int(waist_distance))
+        if icon4_state == 1:
+            if icon1_state == 1:
+                si = (si - 1) % 5
+                current_shirt = cropped_shirts[si]
+
+            if icon2_state == 1:
+                si = (si + 1) % 5
+                current_shirt = cropped_shirts[si]
+
+        if icon3_state == 1:
+            if icon1_state == 1:
+
+                pi = (pi - 1) % 5
+                current_pant = cropped_pants[pi]
+
+            if icon2_state == 1:
+
+                pi = (pi + 1) % 5
+                current_pant = cropped_pants[pi]
+
+        resized_shirt = IP.image_resize(current_shirt, width=int(shoulder_distance + 60))
+        resized_pant = IP.image_resize(current_pant, width=int(waist_distance))
 
         shirt_y = np.shape(resized_shirt)[0]
         shirt_x = np.shape(resized_shirt)[1]
@@ -112,7 +167,7 @@ while True:
         pant_x = np.shape(resized_pant)[1]
 
         #####################################################
-        ### Add resized image to Background removed Image ###
+        ### Add resized image to User Image ###
         #####################################################
 
         # Offsets:
@@ -140,11 +195,71 @@ while True:
 
         Output = IP.mergeImages(overlay, color_img)
 
+        ##################################
+        ## Add GUI functions and Icons ###
+        ##################################
+
+        icon_y = np.shape(cropped_icons[0])[0]
+        icon_x = np.shape(cropped_icons[0])[1]
+
+        icon_overlay = np.zeros_like(Output)
+        icon_overlay_y = np.shape(icon_overlay)[0]
+        icon_overlay_x = np.shape(icon_overlay)[1]
+
+        # check buttons
+        if (350 < HTL_x < icon_x + 350) and (int((icon_overlay_y/2) - (icon_y/2)) < HTL_y < int((icon_overlay_y/2) - (icon_y/2)) + icon_y):
+            icon1_state = 1
+        else:
+            icon1_state = 0
+
+        if (int(icon_overlay_x - icon_x) - 350 < HTR_x < icon_overlay_x - 350) and (int((icon_overlay_y / 2) - (icon_y / 2)) < HTR_y < int(
+                (icon_overlay_y / 2) - (icon_y / 2)) + icon_y):
+            icon2_state = 1
+        else:
+            icon2_state = 0
+
+        if (int(icon_overlay_x/2 - 2*icon_x) < HTL_x < int(icon_overlay_x/2 - icon_x)) and (25 < HTL_y < icon_y + 25):
+            icon3_state = 1
+            icon4_state = 0
+
+        if (int(icon_overlay_x/2 + icon_x) < HTR_x < int(icon_overlay_x/2 + 2*icon_x)) and (25 < HTR_y < icon_y + 25):
+            icon4_state = 1
+            icon3_state = 0
+
+        # generate icon overlay
+        if icon1_state == 1:
+            icon1 = cropped_icons[6]
+        else:
+            icon1 = cropped_icons[0]
+
+        if icon2_state == 1:
+            icon2 = cropped_icons[7]
+        else:
+            icon2 = cropped_icons[1]
+
+        if icon3_state == 1:
+            icon3 = cropped_icons[3]
+        else:
+            icon3 = cropped_icons[2]
+
+        if icon4_state == 1:
+            icon4 = cropped_icons[5]
+        else:
+            icon4 = cropped_icons[4]
+
+        icon_overlay[int((icon_overlay_y/2) - (icon_y/2)):int((icon_overlay_y/2) - (icon_y/2)) + icon_y, 350:icon_x + 350] = icon1[0:icon_y, 0:icon_x]
+        icon_overlay[int((icon_overlay_y/2) - (icon_y/2)):int((icon_overlay_y/2) - (icon_y/2)) + icon_y, int(icon_overlay_x - icon_x) - 350:icon_overlay_x - 350] = icon2[0:icon_y, 0:icon_x]
+        icon_overlay[25:icon_y+25, int(icon_overlay_x/2 - 2*icon_x):int(icon_overlay_x/2 - icon_x)] = icon3[0:icon_y, 0:icon_x]
+        icon_overlay[25:icon_y+25, int(icon_overlay_x/2 + icon_x):int(icon_overlay_x/2 + 2*icon_x)] = icon4[0:icon_y, 0:icon_x]
+
+        # merge icon overlay with Output
+        Output = IP.mergeImages(icon_overlay, Output)
+
         #####################################
         ## Display 2D images using OpenCV ###
         #####################################
 
-        cv2.imshow('Virtual Fitting Room', color_img)
+        cv2.imshow('Virtual Fitting Room', Output)
 
     key = cv2.waitKey(30)
     if key == 27:  # Press esc to break the loop

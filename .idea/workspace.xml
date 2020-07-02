@@ -2,14 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="99e7157c-65dc-41ef-a4b4-f81d8430605e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/icons/1-left.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/icons/2-right.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/icons/3-pant_unselected.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/icons/4-pant_selected.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/icons/5-shirt_unselected.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/icons/6-shirt_selected.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/icons/7-left_selected.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/icons/8-right_selected.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ImageProcessing.py" beforeDir="false" afterPath="$PROJECT_DIR$/ImageProcessing.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kinect.py" beforeDir="false" afterPath="$PROJECT_DIR$/Kinect.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/KinectGUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/KinectGUI.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kinect_Image.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MainCode.py" beforeDir="false" afterPath="$PROJECT_DIR$/MainCode.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MainCode_Solo.py" beforeDir="false" afterPath="$PROJECT_DIR$/MainCode_Solo.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/My.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils_PyKinectV2.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils_PyKinectV2.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +53,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.KinectGUI">
+  <component name="RunManager" selected="Python.MainCode_Solo">
     <configuration name="ContourTest" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="fyp-virtual-dressing-room" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -155,16 +160,16 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Python.ContourTest" />
       <item itemvalue="Python.KinectGUI" />
       <item itemvalue="Python.MainCode" />
-      <item itemvalue="Python.basic_2D" />
-      <item itemvalue="Python.ContourTest" />
       <item itemvalue="Python.MainCode_Solo" />
+      <item itemvalue="Python.basic_2D" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.KinectGUI" />
         <item itemvalue="Python.MainCode_Solo" />
+        <item itemvalue="Python.KinectGUI" />
         <item itemvalue="Python.ContourTest" />
         <item itemvalue="Python.basic_2D" />
         <item itemvalue="Python.MainCode" />
@@ -208,71 +213,79 @@
       <option name="project" value="LOCAL" />
       <updated>1586879476459</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Fixed threading issue by removing load from the thread. added qImg variable with live output feed. Completely interfaced Video and GUI. Crash issue still exists">
+      <created>1593681783088</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1593681783088</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Re-organised Code for better readability" />
     <MESSAGE value="Added a basic GUI to control Kinect code. Will use this later to display kinect output.&#10;&#10;Also Implemented basic shirt tracking and resizing." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a basic GUI to control Kinect code. Will use this later to display kinect output.&#10;&#10;Also Implemented basic shirt tracking and resizing." />
+    <MESSAGE value="Fixed threading issue by removing load from the thread. added qImg variable with live output feed. Completely interfaced Video and GUI. Crash issue still exists" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed threading issue by removing load from the thread. added qImg variable with live output feed. Completely interfaced Video and GUI. Crash issue still exists" />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586869925687">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586869925687" />
-    <state x="614" y="114" key="CommitChangelistDialog2" timestamp="1586879474287">
+    <state x="614" y="114" key="CommitChangelistDialog2" timestamp="1593681781224">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="614" y="114" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1586879474287" />
+    <state x="614" y="114" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1593681781224" />
     <state x="740" y="261" key="FileChooserDialogImpl" timestamp="1593439652043">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="261" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1593439652043" />
-    <state width="1899" height="159" key="GridCell.Tab.0.bottom" timestamp="1593681594791">
+    <state width="1899" height="159" key="GridCell.Tab.0.bottom" timestamp="1593707071643">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1899" height="169" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587457854187" />
-    <state width="1899" height="159" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1593681594791" />
-    <state width="1899" height="159" key="GridCell.Tab.0.center" timestamp="1593681594791">
+    <state width="1899" height="159" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1593707071643" />
+    <state width="1899" height="159" key="GridCell.Tab.0.center" timestamp="1593707071643">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1899" height="169" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587457854187" />
-    <state width="1899" height="159" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1593681594791" />
-    <state width="1899" height="159" key="GridCell.Tab.0.left" timestamp="1593681594791">
+    <state width="1899" height="159" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1593707071643" />
+    <state width="1899" height="159" key="GridCell.Tab.0.left" timestamp="1593707071643">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1899" height="169" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587457854186" />
-    <state width="1899" height="159" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1593681594791" />
-    <state width="1899" height="159" key="GridCell.Tab.0.right" timestamp="1593681594791">
+    <state width="1899" height="159" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1593707071643" />
+    <state width="1899" height="159" key="GridCell.Tab.0.right" timestamp="1593707071643">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1899" height="169" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587457854187" />
-    <state width="1899" height="159" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1593681594791" />
-    <state width="1899" height="821" key="GridCell.Tab.1.bottom" timestamp="1593671133661">
+    <state width="1899" height="159" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1593707071643" />
+    <state width="1899" height="821" key="GridCell.Tab.1.bottom" timestamp="1593698127269">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="821" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1593671133661" />
-    <state width="1899" height="821" key="GridCell.Tab.1.center" timestamp="1593671133661">
+    <state width="1899" height="821" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1593698127269" />
+    <state width="1899" height="821" key="GridCell.Tab.1.center" timestamp="1593698127269">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="821" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1593671133661" />
-    <state width="1899" height="821" key="GridCell.Tab.1.left" timestamp="1593671133661">
+    <state width="1899" height="821" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1593698127269" />
+    <state width="1899" height="821" key="GridCell.Tab.1.left" timestamp="1593698127269">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="821" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1593671133661" />
-    <state width="1899" height="821" key="GridCell.Tab.1.right" timestamp="1593671133661">
+    <state width="1899" height="821" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1593698127269" />
+    <state width="1899" height="821" key="GridCell.Tab.1.right" timestamp="1593698127269">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="821" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1593671133661" />
+    <state width="1899" height="821" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1593698127269" />
     <state x="461" y="162" key="SettingsEditor" timestamp="1593619840162">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1593619840162" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1586879482111">
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1593681794688">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1586879482111" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1593681794688" />
   </component>
 </project>

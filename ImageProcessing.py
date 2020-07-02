@@ -76,3 +76,30 @@ def mergeImages(cloth_overlay, user_overlay):
     cv2.addWeighted(cloth_overlay, 1, user_overlay, 1, 0, user_overlay)
 
     return user_overlay
+
+
+def processIcons(img, scale_percent):
+    img_gray = cv2.cvtColor(img, cv2.COLOR_BGRA2GRAY)
+    _, icon_mask = cv2.threshold(img_gray, 5, 255, cv2.THRESH_BINARY)
+    _, alpha = cv2.threshold(img_gray, 0, 1, cv2.THRESH_BINARY)
+
+    # Extract out the image based on mask
+    overlay = np.zeros_like(img)
+    overlay[icon_mask == 255] = img[icon_mask == 255]
+
+    # Add alpha channel for transparency
+    if len(cv2.split(overlay)) == 4:
+        b, g, r, a = cv2.split(overlay)
+    else:
+        b, g, r = cv2.split(overlay)
+
+    BGRA_img = [b, g, r, alpha]
+    BG_removed = cv2.merge(BGRA_img, 4)
+
+    # resize icon
+    width = int(BG_removed.shape[1] * scale_percent / 100)
+    height = int(BG_removed.shape[0] * scale_percent / 100)
+    dim = (width, height)
+    resized = cv2.resize(BG_removed, dim, interpolation=cv2.INTER_AREA)
+
+    return resized
