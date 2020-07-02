@@ -3,7 +3,7 @@ from PyQt5.QtCore import *
 import MainCode as MC
 
 
-class KinectCAM(QRunnable):
+class CaptureKinect(QRunnable):
 
     @pyqtSlot()
     def run(self):
@@ -19,7 +19,7 @@ class ProcessKinect(QRunnable):
     @pyqtSlot()
     def run(self):
         print("Thread 2 start")
-        # MC.processKinect()
+        MC.processKinect()
         print("Thread 2 complete")
 
 
@@ -62,7 +62,7 @@ class Ui_MainWindow(object):
 
         self.timer = QtCore.QTimer()
         self.timer.timeout.connect(self.updateGUI)
-        self.timer.start(250)
+        self.timer.start(10)
 
         #### Signal Connection ####
         self.conButton.pressed.connect(self.connectKinect)
@@ -83,7 +83,7 @@ class Ui_MainWindow(object):
 
     def connectKinect(self):
         # Worker thread handles Kinect Code
-        thread1 = KinectCAM()
+        thread1 = CaptureKinect()
         thread2 = ProcessKinect()
         self.threadpool.start(thread1)
         self.threadpool.start(thread2)
@@ -100,7 +100,7 @@ class Ui_MainWindow(object):
 
         # Add repeating GUI code here
         if MC.initialization == 1:
-            self.imageDisplay.setPixmap(QtGui.QPixmap("Kinect_Image.jpg"))
+            self.imageDisplay.setPixmap(QtGui.QPixmap(MC.qImg))
         else:
             self.imageDisplay.setPixmap(QtGui.QPixmap("logo.png"))
 

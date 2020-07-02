@@ -12,9 +12,9 @@ def removeBackground(image, mask):
 
 
 def removeClothBG(img):
-    img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    img_gray = cv2.cvtColor(img, cv2.COLOR_BGRA2GRAY)
     _, cloth_mask = cv2.threshold(img_gray, 5, 255, cv2.THRESH_BINARY)
-    _, alpha = cv2.threshold(img_gray, 0, 1, cv2.THRESH_BINARY)
+    _, alpha = cv2.threshold(img_gray, 0, 255, cv2.THRESH_BINARY)
 
     # Extract out the image based on mask
     overlay = np.zeros_like(img)
@@ -26,8 +26,8 @@ def removeClothBG(img):
     else:
         b, g, r = cv2.split(overlay)
 
-    RGBA_img = [b, g, r, alpha]
-    BG_removed = cv2.merge(RGBA_img, 4)
+    BGRA_img = [b, g, r, alpha]
+    BG_removed = cv2.merge(BGRA_img, 4)
 
     (y, x) = np.where(cloth_mask == 255)
     (top_y, top_x) = (np.min(y), np.min(x))

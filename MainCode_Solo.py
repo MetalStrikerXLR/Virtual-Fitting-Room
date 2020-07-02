@@ -1,5 +1,8 @@
 import cv2
 import math as mt
+
+from PyQt5.QtGui import QImage
+
 import Kinect as Kv2
 import ImageProcessing as IP
 import numpy as np
@@ -22,8 +25,8 @@ SPB_x = 0
 SPB_y = 0
 
 # load cloth images
-shirts = [cv2.imread(file) for file in glob.glob('Datasets/Shirts/*.png')]
-pants = [cv2.imread(file) for file in glob.glob('Datasets/Pants/*.png')]
+shirts = [cv2.imread(file, cv2.IMREAD_UNCHANGED) for file in glob.glob('Datasets/Shirts/*.png')]
+pants = [cv2.imread(file, cv2.IMREAD_UNCHANGED) for file in glob.glob('Datasets/Pants/*.png')]
 cropped_shirts = []
 cropped_pants = []
 
@@ -141,7 +144,7 @@ while True:
         ## Display 2D images using OpenCV ###
         #####################################
 
-        cv2.imshow('Virtual Fitting Room', Output)
+        cv2.imshow('Virtual Fitting Room', color_img)
 
     key = cv2.waitKey(30)
     if key == 27:  # Press esc to break the loop

@@ -7,10 +7,7 @@ from open3d import *
 
 def initializeKinect():
     kinectVar = PyKinectRuntime.PyKinectRuntime(PyKinectV2.FrameSourceTypes_Body |
-                                                PyKinectV2.FrameSourceTypes_BodyIndex |
-                                                PyKinectV2.FrameSourceTypes_Color |
-                                                PyKinectV2.FrameSourceTypes_Depth |
-                                                PyKinectV2.FrameSourceTypes_Infrared)
+                                                PyKinectV2.FrameSourceTypes_Color)
 
     return kinectVar
 
@@ -31,17 +28,9 @@ def getColorDimension(kinect):
 
 def getKinectFrames(kinect, color_height, color_width):
     body_frame = kinect.get_last_body_frame()
-
-    # body_index_frame = kinect.get_last_body_index_frame()
     color_frame = kinect.get_last_color_frame()
-    # depth_frame = kinect.get_last_depth_frame()
-    # infrared_frame = kinect.get_last_infrared_frame()
 
-    # body_index_img = body_index_frame.reshape((depth_height, depth_width, 1)).astype(np.uint8)
     color_img = color_frame.reshape((color_height, color_width, 4)).astype(np.uint8)
-    # depth_img = depth_frame.reshape((depth_height, depth_width)).astype(np.uint16)
-    # infrared_img = infrared_frame.reshape((depth_height, depth_width)).astype(np.uint16)
-
     joint, joint_points = utils.define_joints_and_joint_points(body_frame, kinect)
 
     return color_img, joint, joint_points

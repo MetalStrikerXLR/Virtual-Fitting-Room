@@ -1,5 +1,6 @@
 import cv2
 import math as mt
+from PyQt5.QtGui import QImage
 import Kinect as Kv2
 import ImageProcessing as IP
 import numpy as np
@@ -11,6 +12,7 @@ initialization = 0
 color_img = 0
 joint = 0
 jointPoints = 0
+qImg = 0
 
 
 def initKinect():
@@ -23,9 +25,14 @@ def initKinect():
     global color_img
     global joint
     global jointPoints
+    global qImg
 
     kinect = Kv2.initializeKinect()
     color_width, color_height = Kv2.getColorDimension(kinect)
+
+    tempImg = np.zeros((color_height, color_width, 4))
+    bytesPerLine = 4 * color_width
+    qImg = QImage(tempImg.data, color_width, color_height, bytesPerLine, QImage.Format_ARGB32)
 
     ########################
     ### Main Kinect Loop ###
@@ -37,9 +44,9 @@ def initKinect():
             ##############################
             ### Get images from camera ###
             ##############################
+
             color_img, joint, jointPoints = Kv2.getKinectFrames(kinect, color_height, color_width)
 
-            cv2.imwrite("Kinect_Image.jpg", color_img)
             initialization = 1
 
         if disconnectStatus == 1:
@@ -56,6 +63,7 @@ def processKinect():
     global color_img
     global joint
     global jointPoints
+    global qImg
 
     shoulder_distance = 300
     waist_distance = 300
@@ -112,9 +120,7 @@ def processKinect():
                 SPB_x = int(joint2D[0, 0] * 3.75) + 30
                 SPB_y = int(joint2D[0, 1] * 2.547) - 50
 
-                print(SPB_x)
-
-                color_img = Kv2.drawJointsFull(color_img, joint2D)
+                # color_img = Kv2.drawJointsFull(color_img, joint2D)
 
                 distance1 = mt.sqrt(mt.pow(SJL_x - SJR_x, 2))
                 distance2 = mt.sqrt(mt.pow(HPL_x - HPR_x, 2))
@@ -178,8 +184,9 @@ def processKinect():
             ## Display 2D images using OpenCV ###
             #####################################
 
-            # cv2.imshow('Color + Depth Image', color_img)
-            cv2.imwrite("Kinect_Image.jpg", Output)
+            height, width, channel = np.shape(Output)
+            bytesPerLine = 4 * width
+            qImg = QImage(Output.data, width, height, bytesPerLine, QImage.Format_ARGB32)
 
         if disconnectStatus == 1:
             break
