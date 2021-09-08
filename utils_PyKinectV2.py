@@ -37,7 +37,20 @@ def get_align_color_image(kinect, color_img, color_height=1080, color_width=1920
 ### Get the joints information ###
 ##################################
 
-def define_joints_and_joint_points(body_frame, kinect):
+def define_joints_and_joint_points_color(body_frame, kinect):
+    if body_frame is not None:
+        for i in range(0, kinect.max_body_count):
+            body = body_frame.bodies[i]
+            if body.is_tracked:
+                joints = body.joints
+                joint_points = kinect.body_joints_to_color_space(joints) # Convert joint coordinates to depth space
+
+                return joints, joint_points
+
+    return 0, 0
+
+
+def define_joints_and_joint_points_depth(body_frame, kinect):
     if body_frame is not None:
         for i in range(0, kinect.max_body_count):
             body = body_frame.bodies[i]
@@ -63,7 +76,7 @@ def get_single_joint(joints, jointPoints, jointType):
 def get_joint2D(joints, jointPoints):
     joint2D = np.zeros((PyKinectV2.JointType_Count,2), dtype=np.int32) # [25, 2] Note: Total 25 joints
     for i in range(PyKinectV2.JointType_Count):
-        joint2D[i,:] = get_single_joint(joints, jointPoints, i)
+        joint2D[i, :] = get_single_joint(joints, jointPoints, i)
 
     return joint2D
 
@@ -112,14 +125,7 @@ colors_order = [(0,0,255),   # Red
 
 def draw_joint2D(img, j2D, color=(0, 0, 255)):  # Default red circles
     for i in range(j2D.shape[0]):               # Should loop 25 times
-        cv2.circle(img, (j2D[i, 0], j2D[i, 1]), 5, color, -1)
-
-    return img
-
-
-def draw_joint2DFull(img, j2D, color=(0, 0, 255)):  # Default red circles
-    for i in range(j2D.shape[0]):                   # Should loop 25 times
-        cv2.circle(img, (int(j2D[i, 0] * 3.75) + 30, int(j2D[i, 1] * 2.547) - 50), 5, color, -1)
+        cv2.circle(img, (j2D[i, 0], j2D[i, 1]), 6, color, -1)
 
     return img
 

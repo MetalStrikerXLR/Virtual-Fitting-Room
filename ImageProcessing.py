@@ -29,6 +29,7 @@ def removeClothBG(img):
     BGRA_img = [b, g, r, alpha]
     BG_removed = cv2.merge(BGRA_img, 4)
 
+    # Crop image to minimum size
     (y, x) = np.where(cloth_mask == 255)
     (top_y, top_x) = (np.min(y), np.min(x))
     (bottom_y, bottom_x) = (np.max(y), np.max(x))

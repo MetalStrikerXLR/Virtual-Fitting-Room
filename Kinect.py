@@ -13,25 +13,29 @@ def initializeKinect():
 
 
 def getDepthDimension(kinect):
-    width = kinect.depth_frame_desc.Width   # Default: 512
+    width = kinect.depth_frame_desc.Width  # Default: 512
     height = kinect.depth_frame_desc.Height  # Default: 424
 
     return width, height
 
 
 def getColorDimension(kinect):
-    width = kinect.color_frame_desc.Width   # Default: 1920
+    width = kinect.color_frame_desc.Width  # Default: 1920
     height = kinect.color_frame_desc.Height  # Default: 1080
 
     return width, height
 
 
-def getKinectFrames(kinect, color_height, color_width):
+def getKinectFrames(kinect, color_height, color_width, color_space):
     body_frame = kinect.get_last_body_frame()
     color_frame = kinect.get_last_color_frame()
 
     color_img = color_frame.reshape((color_height, color_width, 4)).astype(np.uint8)
-    joint, joint_points = utils.define_joints_and_joint_points(body_frame, kinect)
+
+    if color_space:
+        joint, joint_points = utils.define_joints_and_joint_points_color(body_frame, kinect)
+    else:
+        joint, joint_points = utils.define_joints_and_joint_points_depth(body_frame, kinect)
 
     return color_img, joint, joint_points
 
@@ -50,11 +54,5 @@ def getBodyJoints(joint, jointpoints):
 
 def drawJoints(image, joint2D):
     out_image = utils.draw_joint2D(image, joint2D, utils.colors_order[0])
-
-    return out_image
-
-
-def drawJointsFull(image, joint2D):
-    out_image = utils.draw_joint2DFull(image, joint2D, utils.colors_order[0])
 
     return out_image
