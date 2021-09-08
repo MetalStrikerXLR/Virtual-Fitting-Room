@@ -1,6 +1,9 @@
+
+
 # Virtual Fitting Room - Kinect v2
 
 An implementation of a virtual fitting/dressing room using Kinect v2 sensor with hand gesture controlled GUI.
+
 
 ## Prerequisits
 For the Kinect v2 Sesor to work with PyKinect2, the following prerequisites are required. Exact details can be found at PyKinect2 Repository page:
@@ -25,3 +28,10 @@ Install Open3D
 ```sh
 pip install open3d
 ```
+## Clothing Items, GUI and Cloth Mapping
+
+![Screenshot (87)](https://user-images.githubusercontent.com/13457593/132557060-ef7658d2-092f-423e-a4d1-c72a40e98009.png)
+
+![Screenshot (86)](https://user-images.githubusercontent.com/13457593/132557070-e57c4bef-d222-495c-8a6f-7c42bd646dbc.png)
+
+![Screenshot (85)](https://user-images.githubusercontent.com/13457593/132557093-12fb30bb-b39d-4209-a6fa-4b6f81302644.png)
